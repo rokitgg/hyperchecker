@@ -1,0 +1,49 @@
+{
+  "name": "@acme/nextjs",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "pnpm with-env next build",
+    "clean": "git clean -xdf .cache .next .turbo node_modules",
+    "dev": "pnpm with-env next dev --turbopack",
+    "format": "biome format --write .",
+    "lint": "biome lint",
+    "start": "pnpm with-env next start",
+    "typecheck": "tsc --noEmit",
+    "with-env": "dotenv -e ../../.env --"
+  },
+  "dependencies": {
+    "@acme/api": "workspace:*",
+    "@acme/auth": "workspace:*",
+    "@acme/db": "workspace:*",
+    "@acme/ui": "workspace:*",
+    "@acme/validators": "workspace:*",
+    "@orpc/openapi": "^0.54.0",
+    "@orpc/server": "^0.54.0",
+    "@orpc/zod": "^0.54.0",
+    "@t3-oss/env-nextjs": "^0.12.0",
+    "@tanstack/react-query": "catalog:",
+    "@trpc/client": "catalog:",
+    "@trpc/server": "catalog:",
+    "@trpc/tanstack-react-query": "catalog:",
+    "geist": "^1.3.1",
+    "next": "^15.2.3",
+    "react": "catalog:react19",
+    "react-dom": "catalog:react19",
+    "superjson": "2.2.2",
+    "viem": "^2.30.5",
+    "zod": "catalog:"
+  },
+  "devDependencies": {
+    "@acme/tailwind-config": "workspace:*",
+    "@acme/tsconfig": "workspace:*",
+    "@types/node": "^22.13.11",
+    "@types/react": "catalog:react19",
+    "@types/react-dom": "catalog:react19",
+    "dotenv-cli": "^8.0.0",
+    "jiti": "^1.21.7",
+    "tailwindcss": "catalog:",
+    "typescript": "catalog:"
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "name": "@acme/api",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./src/index.ts"
+    },
+    "./clients/*": "./src/clients/*.ts",
+    "./types/*": "./src/types/*.ts",
+    "./middlewares/*": "./src/middlewares/*.ts",
+    "./orpc": "./src/orpc.ts",
+    "./client": "./src/client.ts",
+    "./routers": "./src/routers/index.ts",
+    "./root": "./src/root.ts",
+    "./server": "./src/server.ts"
+  },
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc",
+    "clean": "git clean -xdf .cache .turbo dist node_modules",
+    "dev": "tsc",
+    "format": "biome format --write .",
+    "lint": "biome lint",
+    "typecheck": "tsc --noEmit --emitDeclarationOnly false"
+  },
+  "dependencies": {
+    "@acme/auth": "workspace:*",
+    "@acme/db": "workspace:*",
+    "@acme/validators": "workspace:*",
+    "@orpc/client": "^0.54.0",
+    "@orpc/contract": "^0.54.0",
+    "@orpc/react-query": "^0.54.0",
+    "@orpc/server": "^0.54.0",
+    "ky": "^1.8.1",
+    "superjson": "2.2.2",
+    "zod": "catalog:"
+  },
+  "devDependencies": {
+    "@acme/tsconfig": "workspace:*",
+    "typescript": "catalog:"
+  }
+}
