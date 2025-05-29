@@ -56,7 +56,7 @@ export const ProtocolCard = ({
         </div>
         <div className="flex flex-col gap-6">
           <div className="flex flex-row gap-1.5 items-end translate-y-3">
-            <h2 className="font-bold text-foreground text-xl md:text-6xl text-gray-50 relative z-10">
+            <h2 className="font-bold text-foreground text-6xl text-foreground relative z-10">
               {protocol.points}
             </h2>
             <p className="text-sm text-gray-600 dark:text-gray-300 leading-snug font-[425] mb-2">
