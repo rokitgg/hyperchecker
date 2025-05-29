@@ -7,7 +7,7 @@ export const env = createEnv({
   server: {
     GITHUB_ID: z.string().min(1).default("id"),
     GITHUB_SECRET: z.string().min(1).default("supersecret"),
-    BETTER_AUTH_APP_NAME: z.string().min(1).default("Ultimate Starter Kit"),
+    BETTER_AUTH_APP_NAME: z.string().min(1).default("HyperChecker"),
     BETTER_AUTH_URL: z.string().default("http://localhost:3000"),
     BETTER_AUTH_SECRET:
       process.env.NODE_ENV === "production"

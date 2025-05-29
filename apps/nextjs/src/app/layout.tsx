@@ -14,17 +14,16 @@ import { ContextProviders } from "~/lib/providers";
 export const metadata: Metadata = {
   metadataBase: new URL(
     env.VERCEL_ENV === "production"
-      ? "https://ultimate-starter-kit.vercel.app"
+      ? "https://hyperchecker.vercel.app"
       : "http://localhost:3000",
   ),
-  title: "Ultimate Starter Kit",
-  description: "Ultimate Starter Kit",
+  title: "HyperChecker",
+  description: "All your HyperEVM points in one place.",
   openGraph: {
-    title: "Ultimate Starter Kit",
-    description:
-      "A collection of the best open-souce tooling to build your full-stack application.",
-    url: "https://ultimate-starter-kit.vercel.app",
-    siteName: "Ultimate Starter Kit",
+    title: "HyperChecker",
+    description: "All your HyperEVM points in one place.",
+    url: "https://hyperchecker.vercel.app",
+    siteName: "HyperChecker",
   },
   twitter: {
     card: "summary_large_image",
