@@ -7,27 +7,11 @@ export interface Protocol {
   title: string;
   description: string;
   avatar: string;
+  avatarClassName?: string;
   url?: string;
   points?: number;
   pointsAlias?: string;
 }
-
-const items: ProtocolCardProps[] = [
-  {
-    protocol: {
-      name: "HyperBeat",
-      title: "HyperBeat",
-      description:
-        "Automated vaults that optimize your returns from top DeFi protocols with just one click.",
-      avatar: "/protocols/hyperbeat.svg",
-      url: "app.hyperbeat.org",
-      points: 100,
-      pointsAlias: "Hearts",
-    },
-    backgroundImage: "/background.jpg",
-    link: "https://app.hyperbeat.org/earn?referral=8CD75D20",
-  },
-];
 
 export async function Protocols({ address }: { address: string }) {
   const data = await api.get.points({
@@ -49,8 +33,11 @@ export async function Protocols({ address }: { address: string }) {
 
 export function ProtocolsSkeleton() {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 w-full">
-      <Skeleton className="bg-input h-96 w-80 rounded-md" />
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      {Array.from({ length: 2 }).map((_, index) => (
+        // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
+        <Skeleton key={index} className="bg-input h-96 w-80 rounded-md" />
+      ))}
     </div>
   );
 }

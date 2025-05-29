@@ -3,13 +3,13 @@
 import { cn } from "@acme/ui";
 import Image from "next/image";
 
-import type { Protocol } from "./protocols";
+import type { ProtocolOutput } from "@acme/api/types/outputs";
 import Link from "next/link";
 
 export interface ProtocolCardProps {
   className?: string;
   backgroundImage?: string;
-  protocol: Protocol;
+  protocol: ProtocolOutput;
   link?: string;
 }
 
@@ -40,11 +40,14 @@ export const ProtocolCard = ({
             width={32}
             alt={`${protocol.name}'s avatar`}
             src={protocol.avatar}
-            className="h-10 w-10 p-1 rounded-full border-0 object-center bg-white"
+            className={cn(
+              "h-10 w-10 p-1 rounded-full border-0 object-center",
+              protocol.avatarClassName,
+            )}
           />
           <div className="flex flex-col">
             <p className="font-normal text-lg text-gray-50 relative z-10">
-              {protocol.name}
+              {protocol.title}
             </p>
             {protocol.url && (
               <p className="text-sm text-gray-400">{protocol.url}</p>
