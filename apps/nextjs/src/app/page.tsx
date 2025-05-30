@@ -13,7 +13,7 @@ import {
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { z } from "zod";
-import { isAddress } from "viem";
+import { getAddress, isAddress } from "viem";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { ArrowRight, Loader, Search } from "lucide-react";
@@ -48,7 +48,9 @@ export default function HomePage() {
       });
     }
 
-    router.push(`/address/${values.address}`);
+    const checksummedAddress = getAddress(values.address);
+
+    router.push(`/address/${checksummedAddress}`);
   }
 
   return (
@@ -90,7 +92,7 @@ export default function HomePage() {
                           autoFocus
                           className="h-12 rounded-full px-4 w-full ps-9 pe-9 disabled:opacity-50"
                           disabled={form.formState.isSubmitting}
-                          placeholder="Search wallet address or name.hl"
+                          placeholder="Search wallet address"
                           {...field}
                         />
                         <div className="text-muted-foreground/80 pointer-events-none absolute inset-y-0 start-0 flex items-center justify-center ps-3 peer-disabled:opacity-50">

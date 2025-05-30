@@ -5,7 +5,8 @@ import { posts } from "../data/posts";
 import ky from "ky";
 import type { HyperBeatResponse } from "../types/hyperbeat";
 import { HyperBeatPayload } from "../constants/hyperbeat";
-import type { HyperSwapResponse } from "../types/protocols";
+import type { HyperSwapResponse, FelixResponse } from "../types/protocols";
+import { FRONTEND_API_KEY } from "../constants/felix";
 
 const getHyperbeatPoints = async (address: string): Promise<number> => {
   const { data: hyperBeatData } = await ky
@@ -52,12 +53,35 @@ const getHyperSwapPoints = async (address: string): Promise<number> => {
   */
 };
 
+const getFelixPoints = async (address: string): Promise<number> => {
+  const data = await ky
+    .get(
+      `https://rbskphftvfnpcetghldu.supabase.co/rest/v1/points_snapshots?select=*&address=eq.${address.toLowerCase()}&order=week_number.asc`,
+      {
+        headers: {
+          "Content-Type": "application/json",
+          apiKey: FRONTEND_API_KEY,
+        },
+      },
+    )
+    .json<FelixResponse>();
+
+  console.log(data);
+
+  if (!data.length || !data[0]) {
+    return 0;
+  }
+
+  return Number(data[0].total_points.toFixed(2));
+};
+
 const os = implement(contract);
 
 export const points = os.get.points.handler(async ({ input }) => {
   const { address } = input;
   const hyperbeat = await getHyperbeatPoints(address);
   const hyperswap = await getHyperSwapPoints(address);
+  const felix = await getFelixPoints(address);
 
   return [
     {
@@ -80,7 +104,19 @@ export const points = os.get.points.handler(async ({ input }) => {
       url: "app.hyperswap.exchange",
       points: hyperswap,
       pointsAlias: "Points",
-      ref: "hhttps://app.hyperswap.exchange/#/swap?referral=RokitG",
+      ref: "https://app.hyperswap.exchange/#/swap?referral=rokitg",
+    },
+    {
+      name: "felix",
+      title: "Felix",
+      description:
+        "Borrow against blue-chip collateral and earn native yield with the Felix stablecoin, feUSD",
+      avatar: "/protocols/felix.webp",
+      avatarClassName: "",
+      url: "usefelix.xyz",
+      points: felix,
+      pointsAlias: "Points",
+      ref: "https://usefelix.xyz?ref=C098A690",
     },
   ];
 });

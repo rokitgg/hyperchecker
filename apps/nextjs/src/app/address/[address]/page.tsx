@@ -49,8 +49,7 @@ export default async function AddressPage({
         <div className="flex flex-row gap-3 w-full justify-between items-center">
           <div className="flex flex-row gap-3 items-center">
             <h2 className="text-3xl font-bold text-foreground">
-              rokitg.hl
-              {/* {`${address.slice(0, 8)}...${address.slice(-6)}`} */}
+              {`${address.slice(0, 8)}...${address.slice(-6)}`}
             </h2>
             <div className="flex flex-row items-center">
               <Button variant="ghost" size="icon" className="rounded-full">
@@ -87,7 +86,12 @@ export default async function AddressPage({
                   <DialogDescription>
                     Let everyone know how active you've been on HyperEVM.
                   </DialogDescription>
-                  <div className="h-full flex flex-row gap-3 items-end">
+                  <div className="flex justify-center items-center h-full">
+                    <p className="text-xl text-muted-foreground/60">
+                      Coming Soon
+                    </p>
+                  </div>
+                  <div className="flex flex-row gap-3 items-end">
                     <Button
                       variant="outline"
                       className="bg-emerald-400 text-background hover:text-background/80 w-full"
