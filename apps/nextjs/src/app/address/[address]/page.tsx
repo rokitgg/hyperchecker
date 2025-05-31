@@ -18,6 +18,7 @@ import {
 } from "@acme/ui/dialog";
 import Link from "next/link";
 import Image from "next/image";
+import { Address } from "./_components/address";
 
 export default async function AddressPage({
   params,
@@ -47,19 +48,7 @@ export default async function AddressPage({
           </Badge>
         </div>
         <div className="flex flex-row gap-3 w-full justify-between items-center">
-          <div className="flex flex-row gap-3 items-center">
-            <h2 className="text-3xl font-bold text-foreground">
-              {`${address.slice(0, 8)}...${address.slice(-6)}`}
-            </h2>
-            <div className="flex flex-row items-center">
-              <Button variant="ghost" size="icon" className="rounded-full">
-                <Copy className="w-4 h-4 text-muted-foreground" />
-              </Button>
-              <Button variant="ghost" size="icon" className="rounded-full">
-                <Eye className="w-4 h-4 text-muted-foreground" />
-              </Button>
-            </div>
-          </div>
+          <Address address={address} />
           <div className="flex flex-row gap-3 items-center">
             <Link
               href="/"

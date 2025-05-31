@@ -18,6 +18,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { ArrowRight, Loader, Search } from "lucide-react";
 import { Button } from "@acme/ui/button";
+import { useState } from "react";
 
 const formSchema = z.object({
   address: z
@@ -33,6 +34,7 @@ const formSchema = z.object({
 
 export default function HomePage() {
   const router = useRouter();
+  const [isLoading, setIsLoading] = useState(false);
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -40,7 +42,7 @@ export default function HomePage() {
   });
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
-    await new Promise((resolve) => setTimeout(resolve, 300));
+    setIsLoading(true);
 
     if (!values.address) {
       return form.setError("address", {
@@ -106,7 +108,7 @@ export default function HomePage() {
                           type="submit"
                           disabled={form.formState.isSubmitting}
                         >
-                          {form.formState.isSubmitting ? (
+                          {isLoading ? (
                             <Loader className="animate-spin" />
                           ) : (
                             <ArrowRight
