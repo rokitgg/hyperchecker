@@ -55,7 +55,7 @@ export default function RootLayout(props: { children: React.ReactNode }) {
           <div className="absolute bottom-4 right-4">
             <ThemeToggle />
           </div>
-          <Toaster />
+          <Toaster position="top-right" />
         </ThemeProvider>
       </body>
     </html>
