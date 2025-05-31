@@ -20,10 +20,10 @@ export const ProtocolCard = ({
   link,
 }: ProtocolCardProps) => {
   return (
-    <Link href={link || "/"} className="max-w-xs w-full group/card">
+    <Link href={link || "/"} className="max-w-full w-full group/card">
       <div
         className={cn(
-          "cursor-pointer overflow-hidden relative card h-96 rounded-md shadow-xl max-w-sm mx-auto flex flex-col justify-between p-4 bg-cover",
+          "cursor-pointer overflow-hidden relative card h-96 rounded-md shadow-xl flex flex-col justify-between p-4 bg-cover",
           className,
         )}
         style={{

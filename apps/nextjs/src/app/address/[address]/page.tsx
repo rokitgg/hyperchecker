@@ -62,7 +62,10 @@ export default async function AddressPage({
 
             <Dialog>
               <DialogTrigger asChild>
-                <Button variant="outline" className="rounded-full">
+                <Button
+                  variant="outline"
+                  className="rounded-full hidden md:flex"
+                >
                   Share
                   <ExternalLink className="w-4 h-4 text-muted-foreground" />
                 </Button>

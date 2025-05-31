@@ -31,7 +31,7 @@ export function Address({ address }: { address: string }) {
 
   return (
     <div className="flex flex-row gap-3 items-center">
-      <h2 className="text-3xl font-bold text-foreground">
+      <h2 className="text-2xl font-bold text-foreground">
         {hidden
           ? "*".repeat(17)
           : `${address.slice(0, 8)}...${address.slice(-6)}`}

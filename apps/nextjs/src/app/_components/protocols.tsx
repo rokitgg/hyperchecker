@@ -18,7 +18,7 @@ export async function Protocols({ address }: { address: string }) {
     address,
   });
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 w-full">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 w-full">
       {data.map((protocol) => (
         <ProtocolCard
           key={protocol.name}
@@ -33,10 +33,10 @@ export async function Protocols({ address }: { address: string }) {
 
 export function ProtocolsSkeleton() {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-      {Array.from({ length: 2 }).map((_, index) => (
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 w-full">
+      {Array.from({ length: 3 }).map((_, index) => (
         // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
-        <Skeleton key={index} className="bg-input h-96 w-80 rounded-md" />
+        <Skeleton key={index} className="bg-input h-96 w-full rounded-md" />
       ))}
     </div>
   );
