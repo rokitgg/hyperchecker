@@ -169,7 +169,7 @@ export default function HomePage() {
           />
         </Link>
         <Link
-          href="https://github.com/rokitdotgg"
+          href="https://github.com/rokitgg/hyperchecker"
           target="_blank"
           className={cn(buttonVariants({ variant: "ghost", size: "icon" }))}
         >
