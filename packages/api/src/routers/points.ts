@@ -66,8 +66,6 @@ const getFelixPoints = async (address: string): Promise<number> => {
     )
     .json<FelixResponse>();
 
-  console.log(data);
-
   if (!data.length || !data[0]) {
     return 0;
   }
@@ -96,16 +94,16 @@ export const points = os.get.points.handler(async ({ input }) => {
       pointsAlias: "Hearts",
       ref: "https://app.hyperbeat.org/earn?referral=8CD75D20",
     },
-    {
-      name: "hyperswap",
-      title: "HyperSwap",
-      description: "First HyperEVM native AMM DEX and Liquidity Hub",
-      avatar: "/protocols/hyperswap.svg",
-      url: "app.hyperswap.exchange",
-      points: hyperswap,
-      pointsAlias: "Points",
-      ref: "https://app.hyperswap.exchange/#/swap?referral=rokitg",
-    },
+    // {
+    //   name: "hyperswap",
+    //   title: "HyperSwap",
+    //   description: "First HyperEVM native AMM DEX and Liquidity Hub",
+    //   avatar: "/protocols/hyperswap.svg",
+    //   url: "app.hyperswap.exchange",
+    //   points: hyperswap,
+    //   pointsAlias: "Points",
+    //   ref: "https://app.hyperswap.exchange/#/swap?referral=rokitg",
+    // },
     {
       name: "felix",
       title: "Felix",
