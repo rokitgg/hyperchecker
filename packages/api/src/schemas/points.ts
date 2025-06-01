@@ -8,7 +8,7 @@ export const pointsInputSchema = z.object({
       (address) =>
         address === "" || address.endsWith(".hl") || isAddress(address),
       {
-        message: "Please provide a valid EVM address or Hyperliquid name.",
+        message: "Please provide a valid EVM address.",
       },
     ),
 });

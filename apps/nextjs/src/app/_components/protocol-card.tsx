@@ -30,7 +30,6 @@ export const ProtocolCard = ({
           backgroundImage: `url(${backgroundImage})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
-          backgroundBlendMode: "darken",
         }}
       >
         <div className="absolute w-full h-full top-0 left-0 transition duration-300 bg-black/50 group-hover/card:bg-black opacity-60" />

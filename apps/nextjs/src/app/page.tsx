@@ -12,13 +12,17 @@ import {
 } from "@acme/ui/form";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
+import Link from "next/link";
 import { z } from "zod";
 import { getAddress, isAddress } from "viem";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { ArrowRight, Loader, Search } from "lucide-react";
-import { Button } from "@acme/ui/button";
+import { ArrowLeft, ArrowRight, Loader, Search } from "lucide-react";
+import { Button, buttonVariants } from "@acme/ui/button";
 import { useState } from "react";
+import { cn } from "@acme/ui";
+import { GitHub } from "~/components/icons/github";
+import { Twitter } from "~/components/icons/twitter";
 
 const formSchema = z.object({
   address: z
@@ -27,7 +31,7 @@ const formSchema = z.object({
       (address) =>
         address === "" || address.endsWith(".hl") || isAddress(address),
       {
-        message: "Please provide a valid EVM address or Hyperliquid name.",
+        message: "Please provide a valid EVM address to be checked.",
       },
     ),
 });
@@ -109,7 +113,7 @@ export default function HomePage() {
                           disabled={form.formState.isSubmitting}
                         >
                           {isLoading ? (
-                            <Loader className="animate-spin" />
+                            <Loader className="animate-spin text-emerald-400 group-hover:text-emerald-600 transition-colors" />
                           ) : (
                             <ArrowRight
                               size={16}
@@ -128,6 +132,49 @@ export default function HomePage() {
             </form>
           </Form>
         </div>
+      </div>
+      <div className="flex flex-col items-center justify-center mt-2">
+        <p className="text-sm text-muted-foreground">
+          Powered by{" "}
+          <a
+            href="https://hyperfoundation.org"
+            target="_blank"
+            className="text-emerald-400 hover:text-emerald-600 hover:underline transition-colors"
+            rel="noreferrer"
+          >
+            Hyperliquid
+          </a>
+        </p>
+      </div>
+      <div className="absolute bottom-4 left-0 right-0 mx-auto flex flex-row items-center justify-center mt-2 gap-2">
+        <Link
+          href="https://x.com/rokitdotgg"
+          target="_blank"
+          className={cn(buttonVariants({ variant: "ghost", size: "icon" }))}
+        >
+          <Twitter className="fill-muted-foreground" />
+        </Link>
+        <Link
+          href="https://app.hyperliquid.xyz/join/ROKITGG"
+          target="_blank"
+          className={cn(buttonVariants({ variant: "ghost", size: "icon" }))}
+        >
+          <Image
+            src="/blob_green.gif"
+            alt="Hyperliquid"
+            width={16}
+            height={16}
+            className="text-muted-foreground"
+            unoptimized
+          />
+        </Link>
+        <Link
+          href="https://github.com/rokitdotgg"
+          target="_blank"
+          className={cn(buttonVariants({ variant: "ghost", size: "icon" }))}
+        >
+          <GitHub className="text-muted-foreground" />
+        </Link>
       </div>
     </main>
   );
