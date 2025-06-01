@@ -50,11 +50,12 @@ export default function RootLayout(props: { children: React.ReactNode }) {
           GeistMono.variable,
         )}
       >
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          forcedTheme="dark"
+        >
           <ContextProviders>{props.children}</ContextProviders>
-          <div className="absolute bottom-4 right-4">
-            <ThemeToggle />
-          </div>
           <Toaster position="top-right" />
         </ThemeProvider>
       </body>
