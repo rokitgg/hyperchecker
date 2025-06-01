@@ -8,11 +8,10 @@ Maintained by [@rokitdotgg](https://x.com/rokitdotgg)
 
 - [Next.js](https://nextjs.org/)
 - [Tailwind CSS](https://tailwindcss.com/)
-- [Lucide](https://lucide.dev/)
-- [Hyperliquid](https://hyperliquid.xyz/)
-- [HyperEVM](https://hyperfoundation.org/)
+- [oRPC](https://orpc.unnoq.com/)
+- [Hyperliquid](https://hyperfoundation.org/)
 
-## Local Development
+## Build Locally
 
 ```bash
 pnpm install
