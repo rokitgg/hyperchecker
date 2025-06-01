@@ -10,6 +10,7 @@ import "~/app/globals.css";
 
 import { env } from "~/env";
 import { ContextProviders } from "~/lib/providers";
+import { Analytics } from "@vercel/analytics/next";
 
 export const metadata: Metadata = {
   metadataBase: new URL(
@@ -58,6 +59,7 @@ export default function RootLayout(props: { children: React.ReactNode }) {
           <ContextProviders>{props.children}</ContextProviders>
           <Toaster position="top-right" />
         </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   );
