@@ -7,7 +7,7 @@ import { ZodSmartCoercionPlugin } from "@orpc/zod";
 const handler = new OpenAPIHandler(router, {
   interceptors: [
     onError((error) => {
-      console.error(error);
+      // console.error(error);
     }),
   ],
   plugins: [new ZodSmartCoercionPlugin()],
