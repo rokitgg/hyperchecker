@@ -60,7 +60,7 @@ export default function HomePage() {
   }
 
   return (
-    <main className="container h-screen py-32">
+    <main className="container h-screen py-24">
       <div className="flex flex-col items-center justify-center">
         <div className="p-6 flex justify-center">
           <div className="relative w-[600px] h-48 flex items-center justify-center">
